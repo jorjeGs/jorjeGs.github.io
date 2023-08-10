@@ -1,48 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="row mt-5">
+    <div class="col-12  text-center">
+      <h1>Ultimate Coin and Dice Simulator!!1!1</h1>
+    </div>
+  </div>
+  <div class="container">
     <div class="row mt-5">
-      <div class="col-12  text-center">
-        <h1>Ultimate Coin and Dice Simulator!!1!1</h1>
+      <div class="col-6 text-center">
+        <h3>How many throws:</h3>
+      </div>
+      <div class="col-2 d-flex justify-content-center">
+        <input type="number" class="form-control" placeholder="#" aria-label="throws" />
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-dark btn-lg" onclick="twodices()">GO!!!</button>
+      </div>
+      <div class="col-2">
+        <a class="btn btn-danger btn-lg" href="../index.html" role="button">Back</a>
       </div>
     </div>
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col-6 text-center">
-          <h3>How many throws:</h3>
-        </div>
-        <div class="col-2 d-flex justify-content-center">
-          <input
-            type="number"
-            class="form-control"
-            placeholder="#"
-            aria-label="throws"
-          />
-        </div>
-        <div class="col-2">
-          <button type="button" class="btn btn-dark btn-lg">GO!!!</button>
-        </div>
-        <div class="col-2">
-          <a class="btn btn-danger btn-lg" href="../index.html" role="button">Back</a>
-        </div>
-      </div>
-    </div>
-    <script src="src/script.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  </div>
+  <script>
+
+    function twodices() {
+      //variables de control
+      var lanzamientos = document.getElementById('numThrows').value;;
+      let d1uno = 0;
+      let d1dos = 0;
+      let d1tres = 0;
+      let d1cuatro = 0;
+      let d1cinco = 0;
+      let d1seis = 0;
+
+      let d2uno = 0;
+      let d2dos = 0;
+      let d2tres = 0;
+      let d2cuatro = 0;
+      let d2cinco = 0;
+      let d2seis = 0;
+
+      var contenedor = document.getElementById('result');
+      //borrar hijos (limpiar pantalla)
+      while (contenedor.firstChild) {
+        contenedor.removeChild(contenedor.firstChild);
+      }
+
+      //lanzamientos
+      for (let i = 1; i <= lanzamientos; i++) {
+        let dado1 = Math.floor(Math.random() * 6) + 1;
+
+        if (dado1 === 1) {
+          d1uno += 1;
+        }
+        elseif(dado1 === 2)
+        {
+          d1dos += 1;
+        }
+        elseif(dado1 === 3)
+        {
+          d1tres += 1;
+        }
+        elseif(dado1 === 4)
+        {
+          d1cuatro += 1;
+        }
+        elseif(dado1 === 5)
+        {
+          d1cinco += 1;
+        }
+        elseif(dado1 === 6)
+        {
+          d1seis += 1;
+        }
+
+        let dado2 = Math.floor(Math.random() * 6) + 1;
+
+        if (dado2 === 1) {
+          d2uno += 1;
+        }
+        elseif(dado2 === 2)
+        {
+          d2dos += 1;
+        }
+        elseif(dado2 === 3)
+        {
+          d2tres += 1;
+        }
+        elseif(dado2 === 4)
+        {
+          d2cuatro += 1;
+        }
+        elseif(dado2 === 5)
+        {
+          d2cinco += 1;
+        }
+        elseif(dado2 === 6)
+        {
+          d2seis += 1;
+        }
+      }
+
+      probDadoUno1 = (d1uno / lanzamientos) * 100;
+      probDadoUno2 = (d1uno / lanzamientos) * 100;
+      probDadoUno3 = (d1tres / lanzamientos) * 100;
+      probDadoUno4 = (d1cuatro / lanzamientos) * 100;
+      probDadoUno5 = (d1cinco / lanzamientos) * 100;
+      probDadoUno6 = (d1seis / lanzamientos) * 100;
+
+      probDadoDos1 = (d2uno / lanzamientos) * 100;
+      probDadoDos2 = (d2uno / lanzamientos) * 100;
+      probDadoDos3 = (d2tres / lanzamientos) * 100;
+      probDadoDos4 = (d2cuatro / lanzamientos) * 100;
+      probDadoDos5 = (d2cinco / lanzamientos) * 100;
+      probDadoDos6 = (d2seis / lanzamientos) * 100;
+
+      var finalContent = document.getElementById('resultFinal');
+
+      var tituloRes = document.createElement('h2');
+      tituloRes.innerHTML = "Dado Rojo | 1-" + d1uno + " " + probDadoUno1 + "% | 2-" + d1dos + " " + probDadoUno2 + "% | 3-" + d1tres + " " + probDadoUno3 + "% | 4-" + d1cuatro + " " + probDadoUno4 + "% | 5-" + d1cinco + " " + probDadoUno5 + "% | 6-" + d1seis + " " + probDadoUno6 + "% |";
+      contenedor.appendChild(tituloRes);
+
+      var tituloRes2 = document.createElement('h2');
+      tituloRes2.innerHTML = "Dado Azul | 1-" + d2uno + " " + probDadoDos1 + "% | 2-" + d2dos + " " + probDadoDos2 + "% | 3-" + d2tres + " " + probDadoDos3 + "% | 4-" + d2cuatro + " " + probDadoDos4 + "% | 5-" + d2cinco + " " + probDadoDos5 + "% | 6-" + d2seis + " " + probDadoDos6 + "% |";
+      contenedor.appendChild(tituloRes2);
+
+      setTimeout(function (element) {
+        element.style.opacity = 1;
+      }, 100 * i, parrafo);
+
+    }
+  </script>
+  <script src="src/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

@@ -47,12 +47,12 @@
             let uno = 0;
             let dos = 0;
             let tres = 0;
-            
-
-            var lado = "";
+            let cuatro = 0;
+            let cinco = 0;
+            let seis = 0;
 
             var contenedor = document.getElementById('result');
-            //borrar hijos (limpiar panntalla)
+            //borrar hijos (limpiar pantalla)
             while (contenedor.firstChild) {
               contenedor.removeChild(contenedor.firstChild);
             }
@@ -62,19 +62,34 @@
             {
               var parrafo = document.createElement('p');
 
-              let res = Math.floor(Math.random() * 2) + 1;
+              let res = Math.floor(Math.random() * 6) + 1;
 
               if(res === 1 )
               {
-                lado = "Aguila";
-                aguilas = aguilas + 1;
+                uno += 1;
               }
-              else{
-                lado = "Sol";
-                soles = soles + 1
+              elseif(res === 2)
+              {
+                dos += 1;
+              }
+              elseif(res === 3)
+              {
+                tres += 1;
+              }
+              elseif(res === 4)
+              {
+                cuatro += 1;
+              }
+              elseif(res === 5)
+              {
+                cinco += 1;
+              }
+              elseif(res === 6)
+              {
+                seis += 1;
               }
 
-              parrafo.innerHTML = "The " + i + " throw was " + lado;
+              parrafo.innerHTML = "The " + i + " throw was " + res;
               contenedor.appendChild(parrafo);
 
               setTimeout(function(element) {
@@ -82,8 +97,12 @@
               }, 100 * i, parrafo);
             }
 
-            probAguila = (aguilas/lanzamientos) * 100;
-            probSol = (soles/lanzamientos) * 100;
+            prob1 = (uno/lanzamientos) * 100;
+            prob2 = (dos/lanzamientos) * 100;
+            prob3 = (tres/lanzamientos) * 100;
+            prob4 = (cuatro/lanzamientos) * 100;
+            prob5 = (cinco/lanzamientos) * 100;
+            prob6 = (seis/lanzamientos) * 100;
 
             var finalContent = document.getElementById('resultFinal');
             //borrar hijos (limpiar panntalla)
@@ -92,7 +111,7 @@
             }
 
             var tituloRes = document.createElement('h2');
-            tituloRes.innerHTML = aguilas + " of " + lanzamientos + " were Aguilas (" + probAguila + "%)"  +  ", and " + soles + " were Soles (" + probSol + "%)";
+            tituloRes.innerHTML = "Dado Rojo | 1-" + uno + " " + prob1 + "% | 2-" + dos + " " + prob2 + "% | 3-" + tres + " " + prob3 + "% | 4-" + cuatro + " " + prob4 + "% | 5-" + cinco + " " + prob5 + "% | 6-" + seis + " " + prob6 + "% |";;
             finalContent.appendChild(tituloRes);
             
           }
