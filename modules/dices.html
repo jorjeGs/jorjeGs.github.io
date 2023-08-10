@@ -21,7 +21,7 @@
         <h3>How many throws:</h3>
       </div>
       <div class="col-2 d-flex justify-content-center">
-        <input type="number" class="form-control" placeholder="#" aria-label="throws" />
+        <input type="number" class="form-control" id="numThrows" placeholder="#" aria-label="throws" />
       </div>
       <div class="col-2">
         <button type="button" class="btn btn-dark btn-lg" onclick="twodices()">GO!!!</button>
@@ -35,7 +35,7 @@
 
     function twodices() {
       //variables de control
-      var lanzamientos = document.getElementById('numThrows').value;;
+      var lanzamientos = document.getElementById('numThrows').value;
       let d1uno = 0;
       let d1dos = 0;
       let d1tres = 0;
