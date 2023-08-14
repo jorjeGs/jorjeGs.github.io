@@ -38,6 +38,12 @@
           <a class="btn btn-danger btn-lg" href="../index.html" role="button">Back</a>
         </div>
       </div>
+      <div class="row text-center mt-5">
+        <div class="col-12" id="resultFinal"></div>
+      </div>
+      <div class="row text-center mt-5">
+        <div class="col-12" id="result"></div>
+      </div>
     </div>
     <script>
 
@@ -69,23 +75,23 @@
               {
                 uno += 1;
               }
-              elseif(res === 2)
+              else if(res === 2)
               {
                 dos += 1;
               }
-              elseif(res === 3)
+              else if(res === 3)
               {
                 tres += 1;
               }
-              elseif(res === 4)
+              else if(res === 4)
               {
                 cuatro += 1;
               }
-              elseif(res === 5)
-              {
+              else if(res === 5)
+              { 
                 cinco += 1;
               }
-              elseif(res === 6)
+              else if(res === 6)
               {
                 seis += 1;
               }
@@ -111,13 +117,12 @@
               finalContent.removeChild(finalContent.firstChild);
             }
 
-            var tituloRes = document.createElement('h2');
-            tituloRes.innerHTML = "Dado Rojo | 1-" + uno + " " + prob1 + "% | 2-" + dos + " " + prob2 + "% | 3-" + tres + " " + prob3 + "% | 4-" + cuatro + " " + prob4 + "% | 5-" + cinco + " " + prob5 + "% | 6-" + seis + " " + prob6 + "% |";;
+            var tituloRes = document.createElement('h4');
+            tituloRes.innerHTML = "Dado Rojo | 1-" + uno + " (" + prob1.toFixed(1) + "%) | 2-" + dos + " (" + prob2.toFixed(1) + "%) | 3-" + tres + " (" + prob3.toFixed(1) + "%) | 4-" + cuatro + " (" + prob4.toFixed(1) + "%) | 5-" + cinco + " (" + prob5.toFixed(1) + "%) | 6-" + seis + " (" + prob6.toFixed(1) + "%)";
             finalContent.appendChild(tituloRes);
             
           }
     </script>
-    <script src="./src/script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

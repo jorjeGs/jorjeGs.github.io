@@ -53,7 +53,6 @@
         <div class="col-12" id="result"></div>
       </div>
     </div>
-    <script src="./src/script.js"></script>
     <script>
 
           function throwCoin()
@@ -106,7 +105,7 @@
             }
 
             var tituloRes = document.createElement('h2');
-            tituloRes.innerHTML = aguilas + " of " + lanzamientos + " were Aguilas (" + probAguila + "%)"  +  ", and " + soles + " were Soles (" + probSol + "%)";
+            tituloRes.innerHTML = aguilas + " of " + lanzamientos + " were Aguilas (" + probAguila.toFixed(2) + "%)"  +  ", and " + soles + " were Soles (" + probSol.toFixed(2) + "%)";
             finalContent.appendChild(tituloRes);
             
           }
