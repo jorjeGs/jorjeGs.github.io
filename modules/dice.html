@@ -10,6 +10,7 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="row mt-5">
@@ -40,6 +41,16 @@
       </div>
       <div class="row text-center mt-5">
         <div class="col-12" id="resultFinal"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12 d-flex flex-row justify-content-center align-items-center">
+          <div id="resultPie" style="width: 400px; text-align: center;">
+            <canvas id="PieChart"></canvas>
+          </div>
+          <div id="resultBar" style="width: 400px; text-align: center;">
+            <canvas id="BarChart"></canvas>
+          </div>
+        </div>
       </div>
       <div class="row text-center mt-5">
         <div class="col-12" id="result"></div>
@@ -120,6 +131,34 @@
             var tituloRes = document.createElement('h4');
             tituloRes.innerHTML = "Dado Rojo | 1-" + uno + " (" + prob1.toFixed(1) + "%) | 2-" + dos + " (" + prob2.toFixed(1) + "%) | 3-" + tres + " (" + prob3.toFixed(1) + "%) | 4-" + cuatro + " (" + prob4.toFixed(1) + "%) | 5-" + cinco + " (" + prob5.toFixed(1) + "%) | 6-" + seis + " (" + prob6.toFixed(1) + "%)";
             finalContent.appendChild(tituloRes);
+
+            //CHARTS
+            var contenedorPie = document.getElementById('resultPie');
+            var contenedorBar = document.getElementById('resultBar');
+
+            let labels = ["1", "2", "3", "4", "5", "6"];
+            let valores = [uno, dos, tres, cuatro, cinco, seis];
+            while (contenedorPie.firstChild) {
+              contenedorPie.removeChild(contenedorPie.firstChild);
+            }
+            while (contenedorBar.firstChild) {
+              contenedorBar.removeChild(contenedorBar.firstChild);
+            }
+
+            // PIECHART
+            
+            canvaPie = document.createElement('canvas');
+            contenedorPie.appendChild(canvaPie);
+            canvaPie.setAttribute("id", "PieChart");
+            //funcion  para mostrar grafica de pastel
+            showPieChart(labels, valores);
+
+            //BARCHAART
+            canvaBar = document.createElement('canvas');
+            contenedorBar.appendChild(canvaBar);
+            canvaBar.setAttribute("id", "BarChart");
+            //funcion  para mostrar grafica de pastel
+            showBarChart(labels, valores);
             
           }
     </script>
@@ -128,5 +167,6 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <script src="../src/script.js"></script>
   </body>
 </html>

@@ -10,6 +10,7 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="row mt-5">
@@ -49,6 +50,16 @@
       <div class="row text-center mt-5">
         <div class="col-12" id="resultFinal"></div>
       </div>
+      <div class="row mt-5">
+        <div class="col-12 d-flex flex-row justify-content-center align-items-center">
+          <div id="resultPie" style="width: 400px; text-align: center;">
+            <canvas id="PieChart"></canvas>
+          </div>
+          <div id="resultBar" style="width: 400px; text-align: center;">
+            <canvas id="BarChart"></canvas>
+          </div>
+        </div>
+      </div>
       <div class="row text-center mt-5">
         <div class="col-12" id="result"></div>
       </div>
@@ -65,6 +76,7 @@
             var lado = "";
 
             var contenedor = document.getElementById('result');
+
             //borrar hijos (limpiar panntalla)
             while (contenedor.firstChild) {
               contenedor.removeChild(contenedor.firstChild);
@@ -107,6 +119,34 @@
             var tituloRes = document.createElement('h2');
             tituloRes.innerHTML = aguilas + " of " + lanzamientos + " were Aguilas (" + probAguila.toFixed(2) + "%)"  +  ", and " + soles + " were Soles (" + probSol.toFixed(2) + "%)";
             finalContent.appendChild(tituloRes);
+
+            let labels = ["Águilas", "Soles"];
+            let valores = [aguilas, soles];
+            //CHARTS
+            var contenedorPie = document.getElementById('resultPie');
+            var contenedorBar = document.getElementById('resultBar');
+
+            while (contenedorPie.firstChild) {
+              contenedorPie.removeChild(contenedorPie.firstChild);
+            }
+            while (contenedorBar.firstChild) {
+              contenedorBar.removeChild(contenedorBar.firstChild);
+            }
+
+            // PIECHART
+            
+            canvaPie = document.createElement('canvas');
+            contenedorPie.appendChild(canvaPie);
+            canvaPie.setAttribute("id", "PieChart");
+            //funcion  para mostrar grafica de pastel
+            showPieChart(labels, valores);
+
+            //BARCHAART
+            canvaBar = document.createElement('canvas');
+            contenedorBar.appendChild(canvaBar);
+            canvaBar.setAttribute("id", "BarChart");
+            //funcion  para mostrar grafica de pastel
+            showBarChart(labels, valores);
             
           }
     </script>
@@ -116,5 +156,6 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <script src="../src/script.js"></script>
   </body>
 </html>
